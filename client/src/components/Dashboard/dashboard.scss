@@ -1,0 +1,144 @@
+
+.MuiToolbar-root {
+    justify-content: space-between;
+}
+
+// .container{
+//     max-width: 120rem;
+//     min-height: 50rem;
+
+// }
+
+// .header{
+// height: 5rem;
+// background-color:#0A79DF;
+// display: flex;
+// justify-content: space-between;
+// align-items: center;
+
+// }
+
+// .content{
+
+//     display: flex;
+// }
+
+// .sidebar{
+//     background-color: grey;
+//     flex: 0 0 16%;
+// }
+
+// .dashboard{
+// background-color: orange;
+// flex: 1;
+
+// }
+
+// .logo{
+//     height: 3.5rem;
+//     margin-left: 3rem;
+// }
+//======================================
+
+.user-nav{
+    align-self: stretch; 
+    display: flex;
+    align-items: center;
+    padding-right: 2rem;
+
+    &__icon-box{
+       padding:0 ;
+       display: flex;
+       justify-content: center;
+       text-align: center;
+
+       cursor: pointer;
+       height: 100%;
+       display: flex;
+       align-items: center;
+        position: relative;
+
+       &:hover{
+           background-color: lightblue;
+       }
+
+    }
+
+    &__icon{
+        font-size: 1.5rem;
+        height: 2.75rem;
+        width: 5.5rem;
+        color: honeydew;
+    }
+
+    &__notification{
+        font-size: 0.8rem;
+        height: 1.5rem;
+        width: 1.5rem;
+        border-radius: 50%;
+        background-color: #AC356C;
+        color: #ffffff;
+        position: absolute;
+        top: 0.1rem;
+        left: 1.6rem;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+}
+
+// .MuiFormControl-marginNormal{
+//     margin-left: 10px !important;
+//     // height: 10px;   
+// }
+//=======================================================//
+.sns{
+    background-color: #ffffff;
+    padding: 0 2rem;
+    padding-bottom: 2rem;
+
+    &__input{
+        width: 150px;
+        margin-left: 1rem;
+        
+      
+        // height: 10px;  
+    }
+
+    &__button{
+        margin-left: 10px;
+    }
+
+
+}
+
+.cust__button{
+    font-size: 0.75rem;
+    margin: 0 2px;
+    text-align: center;
+}
+
+.cust__menu{
+    // text-align: center;
+}
+
+.profile{
+display: flex;
+flex-direction: column;
+align-items: center;
+
+&__header{
+    margin-top: 20px;
+    // color: red;
+}
+
+&__span{
+    color: orangered;
+}
+}
+
+
+//=================================//
