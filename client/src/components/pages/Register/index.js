@@ -27,7 +27,7 @@ function Copyright() {
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
-        Mecury Infotech
+       Zylen Solutions
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -168,10 +168,6 @@ const {name, lastname, email, password, password2} = formData;
               />
             </Grid>
             <Grid item xs={12}>
-              {/* <FormControlLabel
-                control={<Checkbox value="allowExtraEmails" color="primary" />}
-                label="I want to receive inspiration, marketing promotions and updates via email."
-              /> */}
             </Grid>
           </Grid>
           <Button
@@ -199,20 +195,11 @@ const {name, lastname, email, password, password2} = formData;
     </Container>
   );
 }
-
-
 Register.propTypes = {
   register: PropTypes.func.isRequired,
   isRegistered: PropTypes.bool
 }
-
-
 const mapStateToProps =  state => ({
 isRegistered: state.auth.isRegistered
-
 })
-
 export default connect(mapStateToProps , {register}) (Register);
-
-
-
