@@ -19,7 +19,7 @@ const Dashoard = ({loadUser,auth:{loading, user}}) => {
 
     if(loading){
         return <Spinner/>
-    } 
+    }
     else
     {
         return(
@@ -33,25 +33,14 @@ const Dashoard = ({loadUser,auth:{loading, user}}) => {
 Dashoard.propTypes = {
     auth: PropTypes.object.isRequired,
     loadUser: PropTypes.func.isRequired
-  
+
   };
-  
+
   const mapStateToProps =  state => ({
     auth:state.auth
   })
-  
+
   export default connect(
     mapStateToProps, {loadUser}
     ) (Dashoard);
   
-// import React from 'react';
-
-// const Dashboard = () => {
-//   return (
-//     <div>
-//       Hiii
-//     </div>
-//   );
-// };
-
-// export default Dashboard;

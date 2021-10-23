@@ -10,13 +10,9 @@ import { Provider } from 'react-redux';
 import store from './store';
 
 //Routes
-import Register from './components/Auth/Register';
-import Login from './components/Auth/Login/Login';
+import Register from './components/pages/Register';
+import Login from './components/pages/Login';
 import Dashboard from './components/Dashboard/Dashboard';
-
-//Approver routes
-import AppRegister from './components/Approver/AppRegister';
-// import AppLogin from './components/Approver/AppLogin';
 
 // //actions
 // import { loadUser } from './components/actions/auth';
@@ -24,8 +20,6 @@ import AppRegister from './components/Approver/AppRegister';
 import { LOGOUT } from './components/actions/types';
 import setAuthToken from './components/utils/setAuthToken';
 // import PrivateRoute from './components/routing/PrivateRoute';
-import AppDashboard from './components/Approver/AppDashboard';
-
 const App = () => {
 
   useEffect(() => {
@@ -47,12 +41,9 @@ const App = () => {
     <BrowserRouter>
           {/* <section className="container"> */}
               <Switch>
-                <Route exact path='/approver/register' component={AppRegister} />
-                <Route exact path='/approver/dashboard' component={AppDashboard} />
                 <Route exact path='/' component={Login} />
                 <Route exact path='/register' component={Register} />
                 <Route exact path='/dashboard' component={Dashboard} />
-                {/* <Route exact path='/addcustomer' component={Addcustform} /> */}
               </Switch>
             {/* </section> */}
       </BrowserRouter>

@@ -19,7 +19,7 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
 //actions
-import {register} from '../actions/auth';
+import {register} from '../../actions/auth';
 
 
 function Copyright() {
@@ -57,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Register = ({register, isRegistered}) => {
   const classes = useStyles();
-   
+
   const [formData, setFormdata] = useState({
     name : '',
     lastname:'',
@@ -68,25 +68,25 @@ const Register = ({register, isRegistered}) => {
 });
 
 const {name, lastname, email, password, password2} = formData;
-  
+
   const onChange = e => setFormdata({...formData, [e.target.name]: e.target.value});
-    
+
   const onSubmit = async e => {
       e.preventDefault();
       if(password !== password2){
-        //  setAlert('Passwords do not match', 'danger');      
-        console.log("Password do not match");      
+        //  setAlert('Passwords do not match', 'danger');
+        console.log("Password do not match");
       } else {
          register({name,lastname, email , password});
-        console.log("data submitted", name, email);  
+        console.log("data submitted", name, email);
       }
   }
-  
-    // Redirect if logged in 
+
+    // Redirect if logged in
     if(isRegistered){
       return <Redirect to='/'/>;
     }
- 
+
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -180,7 +180,7 @@ const {name, lastname, email, password, password2} = formData;
             variant="contained"
             color="primary"
             className={classes.submit}
-          
+
           >
             Sign Up
           </Button>
@@ -203,7 +203,7 @@ const {name, lastname, email, password, password2} = formData;
 
 Register.propTypes = {
   register: PropTypes.func.isRequired,
-  isRegistered: PropTypes.bool 
+  isRegistered: PropTypes.bool
 }
 
 
