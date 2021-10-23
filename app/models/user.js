@@ -8,15 +8,11 @@ const UserSchema = new Schema({
    password: { type: String, required: true, minlength: 6 },
    token: { type: String },
    Date: { type: Date, default: Date.now },
-   approver: { 
-      type: mongoose.Schema.Types.ObjectId, 
-      ref: 'approver'
-      },
 });
 
 
 module.exports  = mongoose.model('user', UserSchema);
- 
+
 // const mongoose = require('mongoose');
 // const Schema = mongoose.Schema;
 

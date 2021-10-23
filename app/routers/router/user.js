@@ -5,7 +5,7 @@ const { check, validationResult } = require('express-validator');
 // const jwt = require('jsonwebtoken');
 // const config = require('config');
 const User_controller = require('../../controllers/User_controller');
- 
+
 //import model
 // const { User } = require('../../models/user');
 
@@ -18,7 +18,7 @@ let { authApp , auth} = require('../../middleware/auth');
 
 
 router.get("/", auth, User_controller.loadUser);
-router.post("/create",authApp, User_controller.createUser);
+router.post("/create", User_controller.createUser);
 router.get("/getall", User_controller.getAllUser);
 router.get("/getbyid/:id", User_controller.getUserById);
 

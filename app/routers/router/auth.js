@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken');
 const config = require('config');
 
 //import model
-const {User} = require('../../models/user');
+const User = require('../../models/user');
 
 //import middlewaare
 const {auth} = require('../../middleware/auth');
@@ -16,7 +16,7 @@ const {auth} = require('../../middleware/auth');
 //@access Public
 
 router.get('/', auth, async (req,res) =>{
-   
+
     try {
      const user = await User.findById(req.user.id).select('-password');
      res.json(user);
@@ -31,41 +31,41 @@ router.get('/', auth, async (req,res) =>{
 // @access   Public
 router.post(
     '/',
-    [
-      check('email', 'Please include a valid email').isEmail(),
-      check('password', 'Password is required').exists()
-    ],
+    // [
+    //   check('email', 'Please include a valid email').isEmail(),
+    //   check('password', 'Password is required').exists()
+    // ],
     async (req, res) => {
       const errors = validationResult(req);
       if (!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.array() });
       }
-  
+
       const { email, password } = req.body;
-  
+
       try {
         let user = await User.findOne({ email });
-  
+
         if (!user) {
           return res
             .status(400)
             .json({ errors: [{ msg: 'Invalid Credentials' }] });
         }
-  
+
         const isMatch = await bcrypt.compare(password, user.password);
-  
+
         if (!isMatch) {
           return res
             .status(400)
             .json({ errors: [{ msg: 'Invalid Password ' }] });
         }
-  
+
         const payload = {
           user: {
             id: user.id
           }
         };
-  
+
         jwt.sign(
           payload,
           config.get('jwtSECRET'),

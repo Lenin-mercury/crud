@@ -2,14 +2,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const CustomerSchema = new Schema({
-   
-   user: { 
-         type: mongoose.Schema.Types.ObjectId, 
+
+   user: {
+         type: mongoose.Schema.Types.ObjectId,
          ref: 'user'
-         },
-   approver: { 
-         type: mongoose.Schema.Types.ObjectId, 
-         ref: 'approver'
          },
    name: { type: String, },
    dob: { type: String, },

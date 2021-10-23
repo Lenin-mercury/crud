@@ -1,10 +1,10 @@
-var express = require('express');
+var express = require("express");
 // var mongoose = require("mongoose");
 var app = express();
-var bodyParser = require('body-parser');
+var bodyParser = require("body-parser");
 // var router = require("./Routers/route");
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+var cookieParser = require("cookie-parser");
+var logger = require("morgan");
 // var router = express.Router();
 var router = require("./app/routers/route");
 
@@ -27,14 +27,14 @@ var connectDB = require("./config/db");
 connectDB();
 
 var port = process.env.PORT || 4000;
-app.use(logger('dev'));
+app.use(logger("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use("/api",router);
+app.use("/api", router);
 // app.use(express.static(path.join(__dirname, 'public')));
-app.all("*", function(req, res) {
+app.all("*", function (req, res) {
   res.status(200);
 });
 app.listen(port);

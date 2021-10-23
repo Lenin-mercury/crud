@@ -1,6 +1,5 @@
 
 var wrapper = require('../models/constants/wrapper.js');
-
 const { check, validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
@@ -12,19 +11,18 @@ var User = mongoose.model('user')
 
 module.exports.createUser = async function (req, res) {
 try{
-     
+
     const{name, phone, email, password, lastname, ...rest} = req.body;
 
     // newCustomer.Date = new Date();
-    
+
      newUser = new User({
-        approver: req.approver.id,
         name,
         lastname,
         phone,
        password,
         email
-       
+
     });
     const salt = await bcrypt.genSalt(10);
     newUser.password = await bcrypt.hash(password, salt);
@@ -59,7 +57,7 @@ try{
 module.exports.getAllUser= async function (req, res) {
     try {
         const searchCriteria = {
-            statusflag: "A",            
+            statusflag: "A",
         };
         // const getUser = await User.find(searchCriteria).exec();
         let getUser = await User.find();
@@ -81,7 +79,7 @@ module.exports.getUserById= async function (req, res) {
 }
 }
 
-module.exports.loginUser = async (req, res) => 
+module.exports.loginUser = async (req, res) =>
 
 {
     const errors = validationResult(req);
@@ -90,7 +88,7 @@ module.exports.loginUser = async (req, res) =>
     }
 
     const { email, password } = req.body;
-    
+
     try {
       let user = await User.findOne({ email });
 
@@ -113,7 +111,7 @@ module.exports.loginUser = async (req, res) =>
           id: user.id
         }
       };
-      
+
 
       jwt.sign(
         payload,
@@ -129,7 +127,7 @@ module.exports.loginUser = async (req, res) =>
       res.status(500).send('Server error');
     }
   }
-  
+
   //get user By id
 module.exports.loadUser= async function (req, res) {
   try {
